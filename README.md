@@ -5,3 +5,8 @@ This project is made to work on the SparkFun JetBot AI Kit, with the final produ
 My approach was to emulate and win a game of [Hide and Seek](https://en.wikipedia.org/wiki/Hide-and-seek) against inanimate objects, within the [COCO dataset](https://cocodataset.org/).
 This was achieved using a hierarchical combination of Monocular Depth Estimation, Object Detection and Collision Avoidance, having Object Detection override on the other two, 
 Collision Avoidance on Monocular Depth Estimation, and Monocular Depth Estimation always running until told otherwise.
+
+
+## Setup
+
+This project builds on the [NVIDIA Collision Avoidance and Object Following Example](https://github.com/NVIDIA-AI-IOT/jetbot) and the [Niantic Monodepth2 repository](https://github.com/nianticlabs/monodepth2). Cloning these are therefore necessary for full functionality.
