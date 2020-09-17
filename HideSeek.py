@@ -47,7 +47,7 @@ import monodepth2.networks as networks
 from monodepth2.utils import download_model_if_doesnt_exist
 
 
-# CAMERA
+# camera and motor functions
 from jetbot import Camera, Robot
 
 # Preprocessing
@@ -85,7 +85,7 @@ except NameError:
 
 # Instanciate Camera
 robot = Robot()
-robot.stop() # Sometimes the robot start driving when instanciated, so this is in case it does this.
+robot.stop() # Sometimes the robot start driving when instantiated, so this is in case it does this.
 
 def geometric_average(l:list):
     '''
@@ -153,7 +153,7 @@ def preprocess(camera_value): # Preprocessing for camera format --> Network inpu
 model_name = "mono_640x192"
 download_model_if_doesnt_exist(model_name)
 
-# Build paths to coders and instanciate from path
+# Build paths to coders and instantiate from path
 encoder_path = os.path.join("models", model_name, "encoder.pth")
 depth_decoder_path = os.path.join("models", model_name, "depth.pth")
 encoder = networks.ResnetEncoder(18, False).cuda()
@@ -248,7 +248,7 @@ def OD_update(change):
 # # Run
 
 
-CA_update({'new': cam.value}) # We instanciate the update functions with the current camera values
+CA_update({'new': cam.value}) # We instantiate the update functions with the current camera values
 OD_update({'new': cam.value})
 cam.observe(CA_update, names='value') # Now we connect the update functions to the camera. This will cause the update functions to be called whenever we have a change in the camera values.
 cam.observe(OD_update, names='value')
