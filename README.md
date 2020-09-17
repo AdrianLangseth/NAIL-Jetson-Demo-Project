@@ -61,6 +61,8 @@ Directory
 
 The program can be run a Jupyter Notebook as well as a python script. Inexplicably, the Jupyter Notebook is orders of magnitude faster than the python file.
 
+Before running, if the password of your jetbot is not "jetbot", the password variable must be changed in the few first lines in the code, where a call to the terminal is made to restart the nvargus-daemon.
+
 To run through the python script, all you need to do is enter the Hide 'n' Seek project directory, and run the main.py file:
 
 `$ python3 main.py`
@@ -82,11 +84,19 @@ The object detection net is a SSD-MobileNet V2 model pre-trained on MS-COCO Data
 - [Niantic Monodepth2 repository](https://github.com/nianticlabs/monodepth2)
 - [NVIDIA Collision Avoidance and Object Following Examples](https://github.com/NVIDIA-AI-IOT/jetbot)
 
+## 📝 Notes:
+
+#### Shorthands used:
+- OD: Object Detection
+- OF: Object Following
+- CA: Collision Avoidance
+- OF: Object Following
+- MD: Monocular Depth Perception / Monodepth
+
+
 ## ❌ Known Issues / fix
 
-When the GPU gets overwhelmed with work, it tends to stop updating the camera values. This may perpetuate after the load is lightened and even after restarting the program and system. The only working fix I found was restarting the nvargus-daemon. This is done by running this line in the console:
-
-`$ sudo systemctl restart nvargus-daemon`
+When the GPU gets overwhelmed with work, it tends to stop updating the camera values. This may perpetuate after the load is lightened and even after restarting the program and system. The only working fix I found was restarting the nvargus-daemon. This is done by running this line in the console: `$ sudo systemctl restart nvargus-daemon`. This must be done before instantiation the camera. To address this, the first lines of the code pushes a terminal command to
 
 The Jetson Nano using the [Raspberry Pi NoIR Camera V2](https://www.raspberrypi.org/products/pi-noir-camera-v2/) is extremely near-sighted when it comes to object recognition. It accurately and notices objects within ~25cm. This applies for all feasible resolutions. This can be fixed by running on better hardware which can handle increased resolution.
 
