@@ -65,7 +65,7 @@ Before running, if the password of your jetbot is not "jetbot", the password var
 
 To run through the python script, all you need to do is enter the Hide 'n' Seek project directory, and run the main.py file:
 
-`$ python3 main.py`
+`$ python3 HideSeek.py`
 
 To run through the Jupyter Notebook, one would first have to enter the project directory and boot up Jupyter Notebook:
 
